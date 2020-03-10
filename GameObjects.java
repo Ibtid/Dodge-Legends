@@ -1,6 +1,7 @@
 package dodge.legends;
 
 import java.awt.Graphics;
+import java.awt.Rectangle;
 
 public abstract class GameObjects {
     
@@ -16,6 +17,7 @@ public abstract class GameObjects {
     
     public abstract void tick();
     public abstract void render(Graphics graphics);
+    public abstract Rectangle getbounds();
 
     public int getX() {
         return x;
