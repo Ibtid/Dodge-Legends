@@ -4,6 +4,7 @@ import java.awt.Canvas;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.image.BufferStrategy;
+import java.util.Random;
 
 public class DodgeLegends extends Canvas implements Runnable {
 
@@ -11,11 +12,17 @@ public class DodgeLegends extends Canvas implements Runnable {
     private Thread thread;
     private boolean running = false;
     private Handler handler;
+    private Random r;
     
     public DodgeLegends(){
         
+        //handler = new Handler();
+       // r = new Random();
+        this.addKeyListener(new KeyInput( handler ));
         handler = new Handler();
         Window window = new  Window(width, height, "Dodge Legends", this);
+        
+        r = new Random();
         
         handler.addObject(new Player(width/2-32,height/2-32, ID.Player));
     }
@@ -61,7 +68,7 @@ public class DodgeLegends extends Canvas implements Runnable {
 
             if (System.currentTimeMillis() - timer > 1000) {
                 timer += 1000;
-                System.out.println("FPS: " + frames);
+               // System.out.println("FPS: " + frames);
                 frames = 0;
             }
         }
