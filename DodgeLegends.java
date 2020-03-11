@@ -6,24 +6,27 @@ import java.awt.Graphics;
 import java.awt.image.BufferStrategy;
 import java.util.Random;
 
-public class DodgeLegends extends Canvas implements Runnable {
+public class DodgeLegends extends Canvas implements Runnable{
 
     public static final int width = 640, height  = width / 12 * 9;
     private Thread thread;
     private boolean running = false;
     private Handler handler;
     private Random r;
+    private HUD hud;
     
     public DodgeLegends(){
         
-        //handler = new Handler();
-       // r = new Random();
-        this.addKeyListener(new KeyInput( handler ));
         handler = new Handler();
+        this.addKeyListener(new KeyInput(handler));
         Window window = new  Window(width, height, "Dodge Legends", this);
         
-        r = new Random();
         
+        hud = new HUD();
+        r = new Random();
+       
+        
+        handler.addObject(new BasicEnemy(width/34, height/40, ID.BasicEnemy));
         handler.addObject(new Player(width/2-32,height/2-32, ID.Player));
     }
     
@@ -46,6 +49,7 @@ public class DodgeLegends extends Canvas implements Runnable {
     
     @Override
     public void run(){
+        this.requestFocus();
         long lastTime = System.nanoTime();
         double amountOfTicks = 60.0;
         double ns = 1000000000 / amountOfTicks;
@@ -77,6 +81,7 @@ public class DodgeLegends extends Canvas implements Runnable {
     
     private void tick(){
         handler.tick();
+        hud.tick();
     }
     
     private void render(){
@@ -94,10 +99,20 @@ public class DodgeLegends extends Canvas implements Runnable {
         graphics.fillRect(0, 0, width, height);
         
         handler.render(graphics);
+        hud.render(graphics);
         
         graphics.dispose();
         bufferstrategy.show();
         
+    }
+    
+     public static int clamp (int var, int min, int max){
+        if(var >= max)
+            return var = max ;
+        else if(var <= max)
+            return var = min;
+        else
+            return var;
     }
     
 }
