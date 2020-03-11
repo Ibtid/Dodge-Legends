@@ -1,4 +1,3 @@
-
 package dodge.legends;
 
 import java.awt.Color;
@@ -14,6 +13,7 @@ public class Player extends GameObjects{
 
     public Player(int x, int y, ID id) {
         super(x, y, id);
+        
     }
     
     @Override
@@ -25,7 +25,13 @@ public class Player extends GameObjects{
     public void tick() {
         x += velocityX;
         y += velocityY;
+        
+        if(y>=DodgeLegends.height-80) y = DodgeLegends.height-80 ;
+        if(x>=DodgeLegends.width-40) x = DodgeLegends.width-40; 
+        if(y<7) y = 7;
+        if(x<0) x = 0;
     }
+    
 
     @Override
     public void render(Graphics graphics) {
