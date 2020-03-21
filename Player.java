@@ -26,10 +26,13 @@ public class Player extends GameObjects{
         x += velocityX;
         y += velocityY;
         
-        if(y>=DodgeLegends.height-80) y = DodgeLegends.height-80 ;
+        x = DodgeLegends.clamp(x, 0, DodgeLegends.width-40);
+        y = DodgeLegends.clamp(y, 0, DodgeLegends.height-80);
+        
+        /*if(y>=DodgeLegends.height-80) y = DodgeLegends.height-80 ;
         if(x>=DodgeLegends.width-40) x = DodgeLegends.width-40; 
         if(y<7) y = 7;
-        if(x<0) x = 0;
+        if(x<0) x = 0;*/
     }
     
 
