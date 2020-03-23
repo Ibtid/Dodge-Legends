@@ -26,8 +26,8 @@ public class DodgeLegends extends Canvas implements Runnable{
         r = new Random();
        
         
-        handler.addObject(new BasicEnemy(width/34, height/40, ID.BasicEnemy));
-        handler.addObject(new Player(width/2-32,height/2-32, ID.Player));
+        handler.addObject(new BasicEnemy(width/34, height/40, ID.BasicEnemy, handler));
+        handler.addObject(new Player(width/2-32,height/2-32, ID.Player, handler));
     }
     
     public synchronized void start(){
