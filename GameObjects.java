@@ -17,7 +17,7 @@ public abstract class GameObjects {
     
     public abstract void tick();
     public abstract void render(Graphics graphics);
-    public abstract Rectangle getbounds();
+    public abstract Rectangle getBounds();
 
     public int getX() {
         return x;
