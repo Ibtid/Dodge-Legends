@@ -14,6 +14,7 @@ public class DodgeLegends extends Canvas implements Runnable{
     private Handler handler;
     private Random r;
     private HUD hud;
+    private Spawn spawner;
     
     public DodgeLegends(){
         
@@ -21,10 +22,9 @@ public class DodgeLegends extends Canvas implements Runnable{
         this.addKeyListener(new KeyInput(handler));
         Window window = new  Window(width, height, "Dodge Legends", this);
         
-        
         hud = new HUD();
+        spawner = new Spawn(handler, hud);
         r = new Random();
-       
         
         handler.addObject(new BasicEnemy(width/34, height/40, ID.BasicEnemy, handler));
         handler.addObject(new Player(width/2-32,height/2-32, ID.Player, handler));
@@ -82,6 +82,7 @@ public class DodgeLegends extends Canvas implements Runnable{
     private void tick(){
         handler.tick();
         hud.tick();
+        spawner.tick();
     }
     
     private void render(){
