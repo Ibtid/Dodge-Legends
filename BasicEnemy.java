@@ -13,8 +13,8 @@ public class BasicEnemy extends GameObjects{
         
         this.handler = handler;
         
-        velocityX = 5;
-        velocityY = 5;
+        velocityX = 3;
+        velocityY = 3;
     }
 
     @Override
@@ -42,3 +42,4 @@ public class BasicEnemy extends GameObjects{
     }
 
 }
+
