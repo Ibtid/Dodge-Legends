@@ -1,4 +1,3 @@
-
 package dodge.legends;
 
 import java.awt.Color;
@@ -34,12 +33,12 @@ public class HUD {
         graphics.drawRect(15, 15, 200, 32);
         
         //Score
-        graphics.setColor(new Color(155,200,255));
+        graphics.setColor(new Color(153,255,255));
         graphics.setFont(new Font("serif", Font.BOLD, 15));
         graphics.drawString("SCORE: " +score, 500, 24);
         
         //level
-        graphics.setColor(new Color(155,200,255));
+        graphics.setColor(new Color(153,255,255));
         graphics.setFont(new Font("serif", Font.BOLD, 25));
         graphics.drawString("Level: " +level, 500, 50);
     }
@@ -59,8 +58,5 @@ public class HUD {
     public void setLevel(int level) {
         this.level = level;
     }
-    
-    
-    
     
 }
