@@ -56,6 +56,4 @@ public class Trail extends GameObjects{
         return null;
     }
 
-    
-    
 }
