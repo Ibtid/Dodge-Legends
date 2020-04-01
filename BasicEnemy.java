@@ -25,14 +25,13 @@ public class BasicEnemy extends GameObjects{
         if(y<10 || y>=DodgeLegends.height-60) velocityY *= -1;
         if(x<0 || x>=DodgeLegends.width-40) velocityX *= -1;
         
-        handler.addObject(new Trail(x, y, ID.Trail, Color.red, 0.02f, 16, 16, handler ));
+        handler.addObject(new Trail(x, y, ID.Trail, new Color(255,51,51), 0.02f, 16, 16, handler ));
     }
 
     @Override
     public void render(Graphics graphics) {
-        graphics.setColor(Color.red);
+        graphics.setColor(new Color(255,51,51));
         graphics.fillOval(x, y, 16, 16);
-        
     }
     
     @Override
@@ -42,4 +41,3 @@ public class BasicEnemy extends GameObjects{
     }
 
 }
-
