@@ -31,7 +31,7 @@ public class Player extends GameObjects{
         x = DodgeLegends.clamp(x, 0, DodgeLegends.width-40);
         y = DodgeLegends.clamp(y, 0, DodgeLegends.height-75);
         
-        handler.addObject(new Trail(x, y, ID.Trail, Color.yellow, 0.05f, 32, 32, handler ));
+        handler.addObject(new Trail(x, y, ID.Trail, new Color(204,0,102), 0.05f, 32, 32, handler ));
         
         collision();
         
@@ -43,7 +43,7 @@ public class Player extends GameObjects{
             
             GameObjects tempObject = handler.object.get(i);
             
-            if(tempObject.getId() == ID.BasicEnemy || tempObject.getId() == ID.FastEnemy || tempObject.getId() == ID.TrapEnemy){
+            if(tempObject.getId() == ID.BasicEnemy || tempObject.getId() == ID.FastEnemy || tempObject.getId() == ID.TrapEnemy || tempObject.getId() == ID.BulletBossEnemy){
                 
                 if(getBounds().intersects(tempObject.getBounds())){
                     HUD.HEALTH-=1;
@@ -57,8 +57,9 @@ public class Player extends GameObjects{
     @Override
     public void render(Graphics graphics) {
         
-        graphics.setColor(Color.yellow);
+        graphics.setColor(new Color(204,0,102));
         graphics.fillOval(x, y, 32, 32);
     }
     
 }
+
