@@ -72,7 +72,7 @@ public class DodgeLegends extends Canvas implements Runnable{
 
             if (System.currentTimeMillis() - timer > 1000) {
                 timer += 1000;
-               // System.out.println("FPS: " + frames);
+                // System.out.println("FPS: " + frames);
                 frames = 0;
             }
         }
@@ -96,7 +96,7 @@ public class DodgeLegends extends Canvas implements Runnable{
         Graphics graphics = bufferstrategy.getDrawGraphics();
             
         
-        graphics.setColor(Color.black);
+        graphics.setColor(new Color(0,25,64));
         graphics.fillRect(0, 0, width, height);
         
         handler.render(graphics);
