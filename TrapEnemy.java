@@ -19,7 +19,7 @@ public class TrapEnemy extends GameObjects{
                 player = handler.object.get(i);
         }
         
-        velocityY = 1;   
+        velocityY = 1;
     }
 
     @Override
@@ -32,12 +32,12 @@ public class TrapEnemy extends GameObjects{
         
         if(y<10 || y>=DodgeLegends.height-60) velocityY *= -1;
         
-        handler.addObject(new Trail(x, y, ID.Trail, Color.green, 0.02f, 16, 16, handler ));
+        handler.addObject(new Trail(x, y, ID.Trail, new Color(178,255,102), 0.02f, 16, 16, handler ));
     }
 
     @Override
     public void render(Graphics graphics) {
-        graphics.setColor(Color.green);
+        graphics.setColor(new Color(178,255,102));
         graphics.fillOval(x, y, 16, 16);
         
     }
