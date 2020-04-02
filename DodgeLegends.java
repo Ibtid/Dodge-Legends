@@ -96,11 +96,12 @@ public class DodgeLegends extends Canvas implements Runnable{
         Graphics graphics = bufferstrategy.getDrawGraphics();
             
         
-        graphics.setColor(new Color(0,25,64));
+        graphics.setColor(new Color(224,224,224));
         graphics.fillRect(0, 0, width, height);
         
         handler.render(graphics);
         hud.render(graphics);
+        
         
         graphics.dispose();
         bufferstrategy.show();
