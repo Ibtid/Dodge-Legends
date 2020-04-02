@@ -46,7 +46,7 @@ public class Player extends GameObjects{
             if(tempObject.getId() == ID.BasicEnemy || tempObject.getId() == ID.FastEnemy || tempObject.getId() == ID.TrapEnemy || tempObject.getId() == ID.BulletBossEnemy){
                 
                 if(getBounds().intersects(tempObject.getBounds())){
-                    HUD.HEALTH-=1;
+                    HUD.playerHEALTH-=1;
                 }
                 
             }
@@ -62,4 +62,3 @@ public class Player extends GameObjects{
     }
     
 }
-
