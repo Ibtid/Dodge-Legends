@@ -1,3 +1,4 @@
+
 package dodge.legends;
 
 import java.awt.Color;
