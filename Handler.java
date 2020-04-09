@@ -30,6 +30,7 @@ public class Handler {
            
            if(tempObject.getId() == ID.Player){
                object.clear();
+               if(DodgeLegends.gameState != DodgeLegends.STATE.End)
                addObject(new Player(tempObject.getX(),tempObject.getY(), ID.Player, this));
            }  
        }
