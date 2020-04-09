@@ -1,4 +1,3 @@
-
 package dodge.legends;
 
 import java.awt.Color;
@@ -47,5 +46,6 @@ public class FastEnemy extends GameObjects{
     }
 
 }
+
 
 
