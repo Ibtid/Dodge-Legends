@@ -9,6 +9,7 @@ import java.util.Random;
 
 public class Player extends GameObjects{
     
+    Music music;
     Random r = new Random();
     Handler handler;
 
@@ -47,6 +48,8 @@ public class Player extends GameObjects{
                 
                 if(getBounds().intersects(tempObject.getBounds())){
                     HUD.playerHEALTH-=1;
+                    music.playMusic("Music\\\\collision.wav");
+                    
                 }
                 
             }
