@@ -1,10 +1,13 @@
 package dodge.legends;
 
+import java.util.Random;
+
 public class Spawn {
 
     Handler handler;
     HUD hud;
     int basicEnemyCount = 1;
+    Random r;
     
     private int scoreKeep = 0;
     
@@ -16,7 +19,7 @@ public class Spawn {
     public void tick(){
         scoreKeep++;
         
-        if(scoreKeep >= 250){
+        if(scoreKeep >= 220){
             scoreKeep = 0;
             hud.setLevel(hud.getLevel()+1);
             
