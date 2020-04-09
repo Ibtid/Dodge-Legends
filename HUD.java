@@ -11,7 +11,7 @@ public class HUD {
     public static int playerHEALTH = 100;
     private int playerGreenValue;
     
-    private int score = 0;
+    public static int score = 0;
     private int level = 1;
 
     public void tick() {
@@ -48,7 +48,7 @@ public class HUD {
         return score;
     }
 
-    public void score(int score) {
+    public void setScore(int score) {
         this.score = score;
     }
 
@@ -61,4 +61,3 @@ public class HUD {
     }
     
 }
-
