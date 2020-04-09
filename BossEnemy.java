@@ -1,5 +1,7 @@
 package dodge.legends;
 
+import static dodge.legends.DodgeLegends.height;
+import static dodge.legends.DodgeLegends.width;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Rectangle;
@@ -7,8 +9,11 @@ import java.util.Random;
 
 public class BossEnemy extends GameObjects{
     
-    int health = 125;
-    int green = 255; ;
+    Music music;
+    public int health = 125;
+    int green = 255; 
+    
+    //private HUD hud;
 
     private Handler handler;
     Random r = new Random();
@@ -51,22 +56,31 @@ public class BossEnemy extends GameObjects{
         if(x<0 || x>=DodgeLegends.width-60) {
             velocityX *= -1;
             velocityY = 20;
-            if(y<10 || y>=DodgeLegends.height-120){
+            if(y<10 || y>=DodgeLegends.height-160){
                 velocityY = -300;
             }
         }
                    
-        handler.addObject(new Trail(x, y, ID.Trail, new Color(178,102,255), 0.3f, 60, 60, handler ));
+        handler.addObject(new Trail(x, y, ID.Trail, new Color(200,102,255), 0.3f, 60, 60, handler ));
         
         collision();
     }
 
     @Override
     public void render(Graphics graphics) {
-        graphics.setColor(new Color(178,102,255));
+        graphics.setColor(new Color(200,102,255));
         graphics.fillOval(x, y, 60, 60);
         
         drawHUD (graphics);
+        if (health <= 0){
+            DodgeLegends.gameState = DodgeLegends.STATE.End;
+            handler.clearEnemies();
+            for(int i = 0; i<10; i ++){
+                handler.addObject(new MenuParticle(r.nextInt(width), r.nextInt(height), ID.MenuParticle, handler));
+            
+            }
+
+        }
         
     }
     
@@ -97,6 +111,8 @@ public class BossEnemy extends GameObjects{
                 if(getBounds().intersects(tempObject.getBounds())){
                     health-=2;
                     green-=2;
+                    HUD.score+=2000;
+                    music.playMusic("Music\\\\bottlePop.wav");
                 }           
             }
         } 
